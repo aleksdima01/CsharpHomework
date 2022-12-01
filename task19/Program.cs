@@ -31,8 +31,15 @@
 Console.Clear();
 Console.WriteLine("Введите пятизначное число:");
 string N1 = Console.ReadLine();
+char[] minus = {'-'};
+ N1 = N1.TrimStart(minus);
+ while (N1.Length!=5)
 
-
+{
+    Console.Write("Вы ошиблись!\nВведите пятизначное число:");
+    N1 = Console.ReadLine();
+     N1 = N1.TrimStart(minus);
+}
 if (N1[0]==N1[3] && N1[1]==N1[4])
 
     Console.WriteLine("Ваше число полиндром!");
@@ -40,4 +47,4 @@ if (N1[0]==N1[3] && N1[1]==N1[4])
  else
 
     Console.WriteLine("Ваше число не полиндром!");
-Console.WriteLine($"{N1[5]}");
+
