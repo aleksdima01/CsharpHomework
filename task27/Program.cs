@@ -1,15 +1,17 @@
 ﻿Console.Clear();
 Console.WriteLine("Введите число:");
-string N1 = Console.ReadLine();
-char[] minus = {'-'};
- N1 = N1.TrimStart(minus);
-
-int result = 0;
-
-for (int i = 0; i < N1.Length; i++)
+int N1 = Convert.ToInt32(Console.ReadLine());
+int sum = 0;
+while (N1<0)
 {
-    result = result+N1[i];
+Console.WriteLine("Введите положительное число!");
+N1 = Convert.ToInt32(Console.ReadLine());
+}
+while (N1>0)
+{
+int n=N1%10;
+sum=sum+n; 
+N1=N1/10;  
 }
 
-
-    Console.WriteLine(int.Parse(result.ToString()));
+    Console.WriteLine($"Сумма цифр вашего числа:{sum}");
