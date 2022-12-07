@@ -1,12 +1,7 @@
 ﻿Console.Clear();
 Console.WriteLine("Введите число:");
-int N1 = Convert.ToInt32(Console.ReadLine());
+int N1 =Math.Abs(Convert.ToInt32(Console.ReadLine()));
 int sum = 0;
-while (N1<0)
-{
-Console.WriteLine("Введите положительное число!");
-N1 = Convert.ToInt32(Console.ReadLine());
-}
 while (N1>0)
 {
 int n=N1%10;
