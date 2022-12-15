@@ -1,10 +1,11 @@
-﻿void InputArray(int[,] array)
+﻿//Вывод среднего арифметического каждого столбца
+void InputArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(-7, 7);
+            array[i, j] = new Random().Next(1, 10);
             Console.Write($"{array[i, j]} \t");
         }
         Console.WriteLine();
@@ -20,18 +21,22 @@ while (coord[0] <= 0 || coord[1] <= 0)
 int[,] array = new int[coord[0], coord[1]];
 Console.WriteLine("Начальная матрица: ");
 InputArray(array);
+Console.WriteLine(" ");
 void AvgSearch(int[,] array)
 {
-    int result = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    double result = 0;
+    Console.WriteLine("Ср.арифметическое столбцов:");
+    for (int i = 0; i < array.GetLength(1); i++)
     {
 
-        for (int j = 0; j < length; j++)
+        for (int j = 0; j < array.GetLength(0); j++)
         {
-            result = result + array[i, j];
+            result = result + array[j, i];
 
         }
-        Console.WriteLine(result);
+        result = result / array.GetLength(0);
+        Console.Write($"{result}\t");
+        result = 0;
     }
 }
 AvgSearch(array);
