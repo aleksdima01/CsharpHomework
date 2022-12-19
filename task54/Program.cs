@@ -19,15 +19,6 @@ void SortRows(int[,] matrix)
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             row[j] = matrix[i, j];
-            matrix[i, j] = row[j];
-        }
-        Sort(row);
-    }
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            row[j] = matrix[i, j];
         }
         Sort(row);
         Insert(i, row, matrix);
