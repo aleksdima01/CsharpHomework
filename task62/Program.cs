@@ -1,29 +1,23 @@
-﻿//Поэлементное произведение 2-х матриц
+﻿//Заполнение массива спиралью
 void InputMatrix(int[,] matrix)
 {
-    int start = 1;
-    for (int i = 0; i < 1; i++)
+    int i = 0;
+    int j = 0;
+    int number = 1;
+    while (number <= 4 * 4)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = start++;
-            Console.Write($"{matrix[i, j]} \t");
-        }
-        Console.WriteLine();
-    }
-    for (int j = 1; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = start++;
-            Console.Write($"{matrix[i, j]} \t");
-        }
-        Console.WriteLine();
+        matrix[i, j] = number;
+        if (i <= j + 1 && i + j < 4 - 1)
+            j++;
+        else if (i < j && i + j >= 4 - 1)
+            i++;
+        else if (i >= j && i + j > 4 - 1)
+            j--;
+        else
+            i--;
+        number++;
     }
 }
-
-
-
 void PrintArray(int[,] matrix)
 {
     for (int a = 0; a < matrix.GetLength(0); a++)
@@ -37,5 +31,6 @@ void PrintArray(int[,] matrix)
 }
 Console.Clear();
 int[,] matrix1 = new int[4, 4];
-Console.WriteLine("Начальный массив:");
+Console.WriteLine("Начальный массив, заполненный спиралью:");
 InputMatrix(matrix1);
+PrintArray(matrix1);
